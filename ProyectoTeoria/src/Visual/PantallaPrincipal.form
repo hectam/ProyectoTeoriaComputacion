@@ -27,20 +27,32 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="Linea" alignment="0" max="32767" attributes="0"/>
+          <Component id="Pizarra" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="AgregarVertice" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="DibujarCamino" max="32767" attributes="0"/>
+                  <Component id="AgregarVertice" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="AgregarArista" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="AgregarArista" max="32767" attributes="0"/>
+                  <Component id="LimpiarCamino" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="GradoMaximoGrafo" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="GradoMaximoGrafo" max="32767" attributes="0"/>
+                  <Component id="DetectarCiclos" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="GradoMenorGrafo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="SumaDeGrados" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="Borrar" max="32767" attributes="0"/>
+                  <Component id="SumaDeGrados" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
-          <Component id="Pizarra" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -57,7 +69,14 @@
                   <Component id="GradoMenorGrafo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="SumaDeGrados" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="DibujarCamino" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DetectarCiclos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LimpiarCamino" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Borrar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -125,6 +144,38 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SumaDeGradosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="DibujarCamino">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Camino"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DibujarCaminoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="DetectarCiclos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ciclo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DetectarCiclosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="LimpiarCamino">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpiar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LimpiarCaminoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Borrar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Borrar Grafo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BorrarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

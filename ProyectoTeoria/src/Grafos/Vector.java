@@ -13,21 +13,32 @@ import java.util.List;
  */
 public class Vector {
     String name;
-    List<String> aristas ;
+    int number;
+    public List<String> aristas ;
+    public List<String> aristasCiclo ;
     
-    public Vector(String nam){
+    public Vector(String nam,int numero){
         name = nam;
+        this.number = numero;
         aristas = new ArrayList<String>();
+        aristasCiclo = new ArrayList<String>();
+        
     }
     
     public void SetName(String nam){
         this.name = nam;
     }
     
+    public int getNumber(){
+        return number;
+    }
+    
     public void anadirArista(String nam){
         this.aristas.add(nam);
     }
-    
+    public void anadirAristaCiclo(String nam){
+        this.aristasCiclo.add(nam);
+    }
     public int cantidadAristas(){
        return  this.aristas.size();
     }
@@ -41,5 +52,7 @@ public class Vector {
          }
         return false;
     }
+
+    
     
 }

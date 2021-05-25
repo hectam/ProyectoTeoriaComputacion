@@ -5,11 +5,14 @@
  */
 package Visual;
 
+import Grafos.Grafo;
+
+import Grafos.Vector;
+
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import Grafos.Grafo;
-import Grafos.Vector;
+
 import com.mxgraph.swing.mxGraphComponent;
 
 /**
@@ -29,11 +32,12 @@ public final class PantallaPrincipal extends JFrame {
 public static final int ALTURA = 60;
 public static final int ANCHURA = 80;
     
-    
-    
+ 
  private List<Object> objeto;
  private List<String> nombre;
  private Grafo grafo;
+ private int value;
+
  private mxGraph grafoVisual;
  private mxGraphComponent grafoVisualComponent;
  private Object padre;
@@ -55,6 +59,7 @@ public static final int ANCHURA = 80;
         objeto = new ArrayList<Object>();
         nombre = new ArrayList<String>();
         grafo =new Grafo();
+        value = 0;
         grafoVisual = new mxGraph();
         grafoVisualComponent = new mxGraphComponent(grafoVisual);
         grafoVisualComponent.setBounds(Pizarra.getBounds());
@@ -80,6 +85,10 @@ public static final int ANCHURA = 80;
         Linea = new javax.swing.JSeparator();
         Pizarra = new javax.swing.JPanel();
         SumaDeGrados = new javax.swing.JButton();
+        DibujarCamino = new javax.swing.JButton();
+        DetectarCiclos = new javax.swing.JButton();
+        LimpiarCamino = new javax.swing.JButton();
+        Borrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -136,24 +145,60 @@ public static final int ANCHURA = 80;
             }
         });
 
+        DibujarCamino.setText("Camino");
+        DibujarCamino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DibujarCaminoActionPerformed(evt);
+            }
+        });
+
+        DetectarCiclos.setText("Ciclo");
+        DetectarCiclos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DetectarCiclosActionPerformed(evt);
+            }
+        });
+
+        LimpiarCamino.setText("Limpiar");
+        LimpiarCamino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarCaminoActionPerformed(evt);
+            }
+        });
+
+        Borrar.setText("Borrar Grafo");
+        Borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Linea)
+            .addComponent(Pizarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(AgregarVertice)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(DibujarCamino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AgregarVertice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AgregarArista)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(AgregarArista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LimpiarCamino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(GradoMaximoGrafo)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(GradoMaximoGrafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DetectarCiclos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(GradoMenorGrafo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SumaDeGrados)
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addComponent(Pizarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SumaDeGrados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +213,13 @@ public static final int ANCHURA = 80;
                     .addComponent(GradoMaximoGrafo)
                     .addComponent(GradoMenorGrafo)
                     .addComponent(SumaDeGrados))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DibujarCamino)
+                    .addComponent(DetectarCiclos)
+                    .addComponent(LimpiarCamino)
+                    .addComponent(Borrar))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -176,25 +227,33 @@ public static final int ANCHURA = 80;
 
     private void AgregarVerticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVerticeActionPerformed
         // TODO add your handling code here:
+        
         String _nombre = JOptionPane.showInputDialog("Escribe nombre del vertice ");
-        if(!Repetido(_nombre)){
-            grafoVisual.getModel().beginUpdate();
-            try
-            {
-                
-                if(X == 1){
-                    objeto.add(grafoVisual.insertVertex(padre, null, _nombre, 20,CalcularY(),ANCHURA, ALTURA, "shape=ellipse;perimeter=ellipsePerimeter"));
-                    X = 20;
-                }else {
-                    objeto.add(grafoVisual.insertVertex(padre, null, _nombre, CalcularX(),CalcularY(),ANCHURA, ALTURA, "shape=ellipse;perimeter=ellipsePerimeter"));
+        if(_nombre !=null){
+            if(!_nombre.isEmpty()){
+                if(!Repetido(_nombre)){
+                    grafoVisual.getModel().beginUpdate();
+                    try
+                    {
+
+                        if(X == 1){
+                            objeto.add(grafoVisual.insertVertex(padre, null, _nombre, 20,CalcularY(),ANCHURA, ALTURA, "shape=ellipse;perimeter=ellipsePerimeter"));
+                            X = 20;
+                        }else {
+                            objeto.add(grafoVisual.insertVertex(padre, null, _nombre, CalcularX(),CalcularY(),ANCHURA, ALTURA, "shape=ellipse;perimeter=ellipsePerimeter"));
+                        }
+
+                    nombre.add(_nombre);
+                    grafo.anadirVector(_nombre,value);
+                    grafo.anadirVectorCiclo(_nombre, value);
+                    value = value+1;
+
+                    }
+                    finally
+                    {
+                        grafoVisual.getModel().endUpdate();
+                    }
                 }
-            
-            nombre.add(_nombre);
-            grafo.anadirVector(_nombre);
-            }
-            finally
-            {
-                grafoVisual.getModel().endUpdate();
             }
         }
     }//GEN-LAST:event_AgregarVerticeActionPerformed
@@ -204,53 +263,65 @@ public static final int ANCHURA = 80;
     }//GEN-LAST:event_formComponentAdded
     
     private void AgregarAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarAristaActionPerformed
-        String verticeBase = JOptionPane.showInputDialog("Escribe primer vertice ");
-            String verticeObjetivo = JOptionPane.showInputDialog("Escribe segundo vertice ");
-            
-           
-           
-            if(grafo != null){
+        try{
+            if(grafo != null && !grafo.isEmpty()){
                 
-            if( !grafo.getVector(verticeBase).checkArista(verticeObjetivo) || !grafo.getVector(verticeObjetivo).checkArista(verticeBase)){
-               
-            grafoVisual.getModel().beginUpdate();
-            grafo.getVector(verticeBase).anadirArista(verticeObjetivo);
-            grafo.getVector(verticeObjetivo).anadirArista(verticeBase);
-            
-            try
-		{
-                int posicionVerticeBase = 0;
-                int pBase=0;
-                for(String nom:nombre){
-                    if(nom.equals(verticeBase)){
-                        posicionVerticeBase= pBase;
-                    }
-                    pBase++;
+            String verticeBase = JOptionPane.showInputDialog("Escribe primer vertice ");
+
+                if(!"".equals(verticeBase) && verticeBase != null ){
+
+                    String verticeObjetivo = JOptionPane.showInputDialog("Escribe segundo vertice ");
+
+                    if(!"".equals(verticeObjetivo) && verticeObjetivo != null){
+
+                        if( !grafo.getVector(verticeBase).checkArista(verticeObjetivo) || !grafo.getVector(verticeObjetivo).checkArista(verticeBase)){
+
+                            grafoVisual.getModel().beginUpdate();
+                            grafo.getVector(verticeBase).anadirArista(verticeObjetivo);
+                            grafo.getVector(verticeObjetivo).anadirArista(verticeBase);
+                            grafo.getVector(verticeBase).anadirAristaCiclo(verticeObjetivo);
+
+
+                            try
+                                {
+                                int posicionVerticeBase = 0;
+                                int pBase=0;
+                                for(String nom:nombre){
+                                    if(nom.equals(verticeBase)){
+                                        posicionVerticeBase= pBase;
+                                    }
+                                    pBase++;
+                                }
+
+                                int posicionVerticeObjetivo = 0;
+                                int pObjetivo=0;
+                                for(String nom:nombre){
+                                    if(nom.equals(verticeObjetivo)){
+                                        posicionVerticeObjetivo = pObjetivo;
+                                    }
+                                    pObjetivo++;
+                                }
+
+
+                                 grafoVisual.insertEdge(padre, null, "", objeto.get(posicionVerticeBase),objeto.get(posicionVerticeObjetivo),"endArrow=none");
+
+
+                                }
+                            finally
+                                {
+                                grafoVisual.getModel().endUpdate();
+                                }
+                        }else{
+                                JOptionPane.showMessageDialog(null,""+" Arista Existente!"," Abvertencia",JOptionPane.WARNING_MESSAGE); 
+                        }
+                   }
                 }
-                
-                int posicionVerticeObjetivo = 0;
-                int pObjetivo=0;
-                for(String nom:nombre){
-                    if(nom.equals(verticeObjetivo)){
-                        posicionVerticeObjetivo = pObjetivo;
-                    }
-                    pObjetivo++;
-                }
-              
-       
-                 grafoVisual.insertEdge(padre, null, "", objeto.get(posicionVerticeBase),objeto.get(posicionVerticeObjetivo),"endArrow=none");
-                
-                  
-		}
-            finally
-		{
-		grafoVisual.getModel().endUpdate();
-		}
             }else{
-                   JOptionPane.showMessageDialog(null,""+" Arista Existente!"," Abvertencia",JOptionPane.WARNING_MESSAGE); 
+                 JOptionPane.showMessageDialog(null,""+" No hay vertices! "," Abvertencia",JOptionPane.WARNING_MESSAGE); 
             }
-            }
-        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Probablemente la arista no existe o esta mal escrita"," Abvertencia",JOptionPane.WARNING_MESSAGE); 
+        }
     }//GEN-LAST:event_AgregarAristaActionPerformed
 
     private void GradoMaximoGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GradoMaximoGrafoActionPerformed
@@ -286,6 +357,141 @@ public static final int ANCHURA = 80;
             
             JOptionPane.showMessageDialog(null,""+maximo,"Suma de Grados",JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_SumaDeGradosActionPerformed
+
+    private void DibujarCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DibujarCaminoActionPerformed
+        
+         List<String> vectores_camino = new ArrayList<String>();
+         String _camino = JOptionPane.showInputDialog("Escribe nombre del vertice ");
+         String temp = "";
+         
+         if(_camino != null){
+         
+         for(int x = 0; x <_camino.length();x++){
+            
+             if(_camino.charAt(x)==','){
+                 vectores_camino.add(temp);
+                 temp ="";  
+                 x++;
+             }
+              temp += _camino.charAt(x);
+              
+         }
+         vectores_camino.add(temp);
+         
+         System.out.println(vectores_camino);
+         boolean v_v_grafo=true;
+         
+         for(int x = 0;x< vectores_camino.size();x++){
+            
+             if(!grafo.encontrarVector(vectores_camino.get(x))){
+                 v_v_grafo=false;
+             };
+         }
+         
+         if(!v_v_grafo){
+               JOptionPane.showMessageDialog(null,""+"Algunos Vertices no existen!"," Abvertencia",JOptionPane.WARNING_MESSAGE);
+         }else{
+             boolean validacion = true;
+              for(int x = 0;x< vectores_camino.size()-1;x++){
+                  
+                  if(!grafo.getVector(vectores_camino.get(x)).checkArista(vectores_camino.get(x+1))){
+                      validacion = false;
+                  }
+              
+              }
+              if(validacion == false){
+                  JOptionPane.showMessageDialog(null,""+"Camino no es valido!"," Abvertencia",JOptionPane.WARNING_MESSAGE); 
+              }else{
+                  
+                  
+                   for(int x = 0; x< vectores_camino.size()-1 ; x++){
+                       int posicionVerticeBase = 0;
+                       int pBase=0;
+                        for(String nom:nombre){
+                            if(nom.equals(vectores_camino.get(x))){
+                            posicionVerticeBase= pBase;
+                        }
+                        pBase++;
+                        }
+                
+                    int posicionVerticeObjetivo = 0;
+                    int pObjetivo=0;
+                    for(String nom:nombre){
+                        if(nom.equals(vectores_camino.get(x+1))){
+                        posicionVerticeObjetivo = pObjetivo;
+                    }
+                        pObjetivo++;
+                    }
+              
+                 
+                 grafoVisual.insertEdge(padre, null, "", objeto.get(posicionVerticeBase),objeto.get(posicionVerticeObjetivo),"endArrow=none;strokeColor=black");
+                
+                  }
+                   System.out.println("Exito");
+              }
+              
+         }
+         
+         
+         }
+        
+    }//GEN-LAST:event_DibujarCaminoActionPerformed
+
+    private void DetectarCiclosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetectarCiclosActionPerformed
+        ArrayList <Integer> adj[] = new ArrayList[nombre.size()];
+            for(int i = 0; i < nombre.size(); i++)
+                adj[i] = new ArrayList<Integer>();
+            
+        for(Vector lol:grafo.getLista()){
+           int temp;
+           
+           for(String names:lol.aristasCiclo){
+               temp = grafo.getVectornu(names);
+               grafo.addEdge(adj, lol.getNumber(), temp);
+           }
+        }
+
+ 
+        if (grafo.CiclosDesconectados(adj, nombre.size()))
+            JOptionPane.showMessageDialog(null,"Se han detectado ciclos en el grafo","Deteccion de ciclos",JOptionPane.PLAIN_MESSAGE);
+        else
+            JOptionPane.showMessageDialog(null,"No se han detectado ciclos","Deteccion de ciclos",JOptionPane.PLAIN_MESSAGE);
+    }//GEN-LAST:event_DetectarCiclosActionPerformed
+
+    private void LimpiarCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarCaminoActionPerformed
+       
+        int pBase = 0;
+        for(String baseNom:nombre){
+                       
+                    int pObjetivo=0;
+                    for(String nom:nombre){
+                        
+                        if(grafo.getVector(baseNom).checkArista(nom)){
+                           
+                           grafoVisual.insertEdge(padre, null, "", objeto.get(pBase),objeto.get(pObjetivo),"endArrow=none;");
+                           grafoVisual.setCellStyle("endArrow=none;");
+                      
+                        }
+                        
+                        pObjetivo++;
+                    }
+                        
+             pBase++;           
+                        
+        }
+                        
+         
+                  
+    }//GEN-LAST:event_LimpiarCaminoActionPerformed
+
+    private void BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarActionPerformed
+        X = 1;
+       Y = 20;
+        Pizarra.removeAll();
+        initGraf();// TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_BorrarActionPerformed
    
     private boolean Repetido(String _nombre){
         for(String nom:nombre){
@@ -349,8 +555,12 @@ public static final int ANCHURA = 80;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarArista;
     private javax.swing.JButton AgregarVertice;
+    private javax.swing.JButton Borrar;
+    private javax.swing.JButton DetectarCiclos;
+    private javax.swing.JButton DibujarCamino;
     private javax.swing.JButton GradoMaximoGrafo;
     private javax.swing.JButton GradoMenorGrafo;
+    private javax.swing.JButton LimpiarCamino;
     private javax.swing.JSeparator Linea;
     private javax.swing.JPanel Pizarra;
     private javax.swing.JButton SumaDeGrados;
