@@ -361,7 +361,7 @@ public static final int ANCHURA = 80;
     private void DibujarCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DibujarCaminoActionPerformed
         
          List<String> vectores_camino = new ArrayList<String>();
-         String _camino = JOptionPane.showInputDialog("Escribe nombre del vertice ");
+         String _camino = JOptionPane.showInputDialog("Escribe un camino para el Grafo ejemplo: A,B,C");
          String temp = "";
          
          if(_camino != null){
