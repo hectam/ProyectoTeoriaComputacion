@@ -238,7 +238,8 @@ public static final int ANCHURA = 80;
     private void AgregarVerticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVerticeActionPerformed
         // TODO add your handling code here:
         
-        String _nombre = JOptionPane.showInputDialog("Escribe nombre del vertice ");
+        String _nombre = JOptionPane.showInputDialog(this,"Escribe nombre del vertice ","Agregar Vertice",JOptionPane.INFORMATION_MESSAGE);
+        
         if(_nombre !=null){
             if(!_nombre.isEmpty()){
                 if(!Repetido(_nombre)){
@@ -276,7 +277,7 @@ public static final int ANCHURA = 80;
         try{
             if(grafo != null && !grafo.isEmpty()){
                 
-            String verticeBase = JOptionPane.showInputDialog("Escribe primer vertice ");
+            String verticeBase = JOptionPane.showInputDialog(this,"Escribe primer vertice ","Ingresa la arista",JOptionPane.INFORMATION_MESSAGE);
 
                 if(!"".equals(verticeBase) && verticeBase != null ){
 
