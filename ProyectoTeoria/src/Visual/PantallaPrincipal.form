@@ -29,29 +29,30 @@
           <Component id="Linea" alignment="0" max="32767" attributes="0"/>
           <Component id="Pizarra" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="DibujarCamino" max="32767" attributes="0"/>
-                  <Component id="AgregarVertice" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="AgregarArista" max="32767" attributes="0"/>
-                  <Component id="LimpiarCamino" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="GradoMaximoGrafo" max="32767" attributes="0"/>
-                  <Component id="DetectarCiclos" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="GradoMenorGrafo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Borrar" max="32767" attributes="0"/>
-                  <Component id="SumaDeGrados" max="32767" attributes="0"/>
+                  <Component id="AgregarVertice" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="AgregarArista" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="SumaDeGrados" max="32767" attributes="0"/>
+                  <Component id="GradoMaximoGrafo" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="GradoMenorGrafo" min="-2" pref="123" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="DibujarCamino" min="-2" pref="109" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="LimpiarCamino" min="-2" pref="103" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="DetectarCiclos" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,20 +64,20 @@
               <Component id="Linea" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="AgregarVertice" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="AgregarArista" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="GradoMaximoGrafo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="GradoMenorGrafo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="GradoMaximoGrafo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="AgregarVertice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DibujarCamino" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LimpiarCamino" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="AgregarArista" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Borrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DetectarCiclos" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="SumaDeGrados" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="DibujarCamino" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="DetectarCiclos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="LimpiarCamino" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Borrar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,6 +85,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="AgregarVertice">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/icons8-plus-24.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Agregar Vertice"/>
       </Properties>
       <Events>
@@ -92,6 +96,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="AgregarArista">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/icons8-up-arrow-24.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Agregar Arista"/>
       </Properties>
       <Events>
@@ -100,6 +107,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="GradoMaximoGrafo">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/icons8-power-bi-24.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Grado del Grafo"/>
       </Properties>
       <Events>
@@ -108,6 +118,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="GradoMenorGrafo">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/icons8-less-than-24.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Grado Menor"/>
       </Properties>
       <Events>
@@ -133,13 +146,16 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="368" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="393" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
     </Container>
     <Component class="javax.swing.JButton" name="SumaDeGrados">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/icons8-sigma-24.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Suma de Grados"/>
       </Properties>
       <Events>
@@ -148,6 +164,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="DibujarCamino">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/icons8-road-24.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Camino"/>
       </Properties>
       <Events>
@@ -156,6 +175,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="DetectarCiclos">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/icons8-process-24.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ciclo"/>
       </Properties>
       <Events>
@@ -164,6 +186,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="LimpiarCamino">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/icons8-clean-24.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Limpiar"/>
       </Properties>
       <Events>
@@ -172,6 +197,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="Borrar">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/icons8-trash-24.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Borrar Grafo"/>
       </Properties>
       <Events>

@@ -97,6 +97,7 @@ public static final int ANCHURA = 80;
             }
         });
 
+        AgregarVertice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-plus-24.png"))); // NOI18N
         AgregarVertice.setText("Agregar Vertice");
         AgregarVertice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +105,7 @@ public static final int ANCHURA = 80;
             }
         });
 
+        AgregarArista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-up-arrow-24.png"))); // NOI18N
         AgregarArista.setText("Agregar Arista");
         AgregarArista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +113,7 @@ public static final int ANCHURA = 80;
             }
         });
 
+        GradoMaximoGrafo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-power-bi-24.png"))); // NOI18N
         GradoMaximoGrafo.setText("Grado del Grafo");
         GradoMaximoGrafo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +121,7 @@ public static final int ANCHURA = 80;
             }
         });
 
+        GradoMenorGrafo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-less-than-24.png"))); // NOI18N
         GradoMenorGrafo.setText("Grado Menor");
         GradoMenorGrafo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,9 +139,10 @@ public static final int ANCHURA = 80;
         );
         PizarraLayout.setVerticalGroup(
             PizarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGap(0, 393, Short.MAX_VALUE)
         );
 
+        SumaDeGrados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-sigma-24.png"))); // NOI18N
         SumaDeGrados.setText("Suma de Grados");
         SumaDeGrados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +150,7 @@ public static final int ANCHURA = 80;
             }
         });
 
+        DibujarCamino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-road-24.png"))); // NOI18N
         DibujarCamino.setText("Camino");
         DibujarCamino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +158,7 @@ public static final int ANCHURA = 80;
             }
         });
 
+        DetectarCiclos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-process-24.png"))); // NOI18N
         DetectarCiclos.setText("Ciclo");
         DetectarCiclos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +166,7 @@ public static final int ANCHURA = 80;
             }
         });
 
+        LimpiarCamino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-clean-24.png"))); // NOI18N
         LimpiarCamino.setText("Limpiar");
         LimpiarCamino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +174,7 @@ public static final int ANCHURA = 80;
             }
         });
 
+        Borrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-trash-24.png"))); // NOI18N
         Borrar.setText("Borrar Grafo");
         Borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,25 +189,26 @@ public static final int ANCHURA = 80;
             .addComponent(Linea)
             .addComponent(Pizarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DibujarCamino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AgregarVertice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(AgregarArista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LimpiarCamino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(GradoMaximoGrafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DetectarCiclos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(GradoMenorGrafo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SumaDeGrados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(AgregarVertice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AgregarArista)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SumaDeGrados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(GradoMaximoGrafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(GradoMenorGrafo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(DibujarCamino, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LimpiarCamino, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DetectarCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,18 +218,18 @@ public static final int ANCHURA = 80;
                 .addComponent(Linea, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AgregarVertice)
-                    .addComponent(AgregarArista)
-                    .addComponent(GradoMaximoGrafo)
                     .addComponent(GradoMenorGrafo)
-                    .addComponent(SumaDeGrados))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GradoMaximoGrafo)
+                    .addComponent(AgregarVertice)
                     .addComponent(DibujarCamino)
-                    .addComponent(DetectarCiclos)
                     .addComponent(LimpiarCamino)
-                    .addComponent(Borrar))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(AgregarArista))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Borrar)
+                    .addComponent(DetectarCiclos)
+                    .addComponent(SumaDeGrados))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
